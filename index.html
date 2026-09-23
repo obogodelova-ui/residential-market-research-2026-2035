@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Рынок жилой недвижимости РФ 2026–2035 | Практический кейс CFO</title>
+<meta content="Глубинное исследование платежеспособного спроса, нового предложения и непроданных остатков на рынке новостроек России 2026–2035." name="description"/>
+<style>
+:root{
+  --bg:#F7F5F0;--surface:#FFFFFF;--surface2:#EFEAE2;--ink:#102133;--muted:#596671;
+  --line:#D8D2C9;--teal:#087F78;--teal2:#20A099;--gold:#AD7E46;--red:#9D4E4E;
+  --dark:#0D1925;--dark2:#122330;--darkline:#30424E;--max:1220px;--radius:8px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px}
+body{margin:0;overflow-x:hidden;background:var(--bg);color:#29333D;font-family:Inter,"Segoe UI",Arial,sans-serif;font-size:17px;line-height:1.6}
+a{color:inherit}
+.container{width:min(calc(100% - 64px),var(--max));margin-inline:auto}
+.topbar{position:sticky;top:0;z-index:30;background:rgba(247,245,240,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(16,33,51,.14)}
+.nav{display:flex;justify-content:space-between;align-items:center;min-height:72px;gap:22px}
+.brand{font-size:.82rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--ink)}
+.navlinks{display:flex;gap:6px;list-style:none;margin:0;padding:0;overflow-x:auto;max-width:100%}
+.navlinks a{display:block;padding:8px 10px;border-radius:5px;text-decoration:none;font-size:.79rem;font-weight:650;color:#52606B;white-space:nowrap}
+.navlinks a:hover{background:var(--surface2);color:var(--teal)}
+
+.hero{position:relative;overflow:hidden;background:var(--dark);color:#F6F2EA;padding:84px 0 76px}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(32,160,153,.10) 1px,transparent 1px),linear-gradient(90deg,rgba(32,160,153,.10) 1px,transparent 1px);background-size:64px 64px;opacity:.38;mask-image:linear-gradient(90deg,transparent,black 40%,black 100%)}
+.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1fr);gap:28px}
+.eyebrow{margin:0 0 16px;color:var(--teal2);font-size:.77rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+h1{margin:0;color:#F6F2EA;font-size:clamp(3rem,6vw,5.6rem);line-height:.98;letter-spacing:-.055em;font-weight:640;max-width:920px}
+.subtitle{max-width:860px;margin:24px 0 0;color:#D7DEE2;font-size:clamp(1.12rem,2vw,1.45rem)}
+.hero-flow{margin-top:34px;color:rgba(246,242,234,.34);font-size:.76rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+
+section{padding:76px 0;border-top:1px solid var(--line)}
+.section-head{display:grid;grid-template-columns:62px minmax(0,1fr);gap:20px;align-items:start;margin-bottom:32px}
+.marker{display:grid;place-items:center;width:60px;height:42px;background:var(--ink);color:#F6F2EA;font-size:.78rem;font-weight:800;border-radius:4px}
+.section-head h2{margin:0;color:var(--ink);font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:640;line-height:1.15;letter-spacing:-.035em}
+.section-head p{grid-column:2;margin:4px 0 0;color:var(--muted);max-width:900px}
+.dark-section{background:var(--dark);color:#F6F2EA;border-top:0}
+.dark-section .section-head h2{color:#F6F2EA}
+.dark-section .section-head p{color:#B9C4CA}
+.dark-section .marker{background:var(--teal2);color:var(--dark)}
+
+.summary-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:20px}
+.panel{background:#FBFAF7;border:1px solid var(--line);border-radius:8px;padding:28px}
+.panel h3{margin:0 0 10px;color:var(--teal);font-size:.78rem;letter-spacing:.11em;text-transform:uppercase}
+.panel p{margin:0;color:#46545F}
+.key-callout{background:var(--dark);border-color:var(--darkline)}
+.key-callout h3{color:var(--teal2)}
+.key-callout p{color:#D0D9DD;font-size:1.08rem}
+.big-number{display:block;margin-top:18px;color:#F6F2EA;font-size:clamp(2.2rem,4vw,3.6rem);font-weight:650;letter-spacing:-.04em}
+.big-number small{display:block;margin-top:5px;color:#B9C4CA;font-size:.83rem;font-weight:500;letter-spacing:0}
+.note{margin-top:16px;padding:16px 18px;border-left:3px solid var(--gold);background:#F1ECE4;color:#5B554E;font-size:.9rem}
+
+.flow{display:grid;grid-template-columns:repeat(6,1fr);gap:9px}
+.flow span{position:relative;padding:16px 12px;text-align:center;border:1px solid var(--line);background:#fff;font-size:.8rem;font-weight:750;color:var(--ink)}
+.flow span:not(:last-child):after{content:"→";position:absolute;right:-10px;top:50%;transform:translate(50%,-50%);z-index:2;background:var(--bg);padding:0 3px;color:var(--teal)}
+.method-box{margin-top:18px;padding:20px;border:1px solid #D0C9BF;background:#EFEAE2}
+.method-box strong{color:var(--ink)}
+
+.chart-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:22px}
+.chart-card{background:var(--dark2);border:1px solid var(--darkline);border-radius:8px;padding:26px;min-width:0}
+.chart-card h3{margin:0;color:#F6F2EA;font-size:1rem}
+.chart-card p{margin:6px 0 18px;color:#B9C4CA;font-size:.86rem}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin:0 0 16px;color:#C7D2D7;font-size:.78rem}
+.legend span{display:inline-flex;align-items:center;gap:7px}
+.legend i{display:inline-block;width:18px;height:6px}
+.legend .demand{background:var(--teal2)}
+.legend .supply{background:var(--gold)}
+.legend .green{background:var(--teal2)}
+.legend .yellow{background:var(--gold)}
+.legend .red{background:var(--red)}
+
+.pair-row{display:grid;grid-template-columns:54px 1fr 62px;gap:10px;align-items:center;margin:15px 0}
+.year{font-size:.8rem;color:#D4DDE1}
+.pair-bars{display:grid;gap:5px}
+.track{height:12px;border:1px solid #38505E;background:#0D1925;overflow:hidden}
+.bar-demand{height:100%;background:var(--teal2)}
+.bar-supply{height:100%;background:var(--gold)}
+.vals{font-size:.76rem;color:#F6F2EA;line-height:1.55;text-align:right}
+.insight-list{display:grid;gap:9px;margin-top:20px}
+.insight{padding:11px 13px;border-left:2px solid var(--teal2);background:#10202D;color:#C7D2D7;font-size:.84rem}
+
+.stock-row{display:grid;grid-template-columns:76px 1fr 58px;gap:10px;align-items:center;margin:12px 0}
+.stock-label{font-size:.8rem;color:#D4DDE1}
+.stock-track{height:14px;border:1px solid #38505E;background:#0D1925}
+.stock-bar{height:100%;background:linear-gradient(90deg,#7C5C36,var(--gold))}
+.stock-value{text-align:right;color:#F6F2EA;font-size:.8rem;font-weight:700}
+.kpi-box{margin-top:18px;padding:16px;border:1px solid #405866;background:#10202D}
+.kpi-box b{display:block;color:var(--teal2);font-size:1.55rem}
+.kpi-box span{color:#C7D2D7;font-size:.83rem}
+
+.mortgage-wrap{margin-top:22px}
+.lot-spec{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+.spec{padding:16px;border:1px solid var(--darkline);background:#10202D}
+.spec b{display:block;color:#F6F2EA;font-size:1rem}
+.spec span{display:block;margin-top:4px;color:#9FB0B8;font-size:.78rem}
+.mortgage-table{width:100%;border-collapse:collapse;font-size:.87rem}
+.mortgage-table th,.mortgage-table td{padding:12px 10px;border-bottom:1px solid var(--darkline);vertical-align:middle}
+.mortgage-table th{color:#9FB0B8;text-transform:uppercase;letter-spacing:.07em;font-size:.7rem;text-align:left}
+.mortgage-table td{color:#E4EAEC}
+.signal{display:inline-block;padding:4px 8px;border-radius:4px;font-size:.73rem;font-weight:750}
+.signal.green{background:rgba(32,160,153,.14);color:#79D2CB}
+.signal.yellow{background:rgba(173,126,70,.18);color:#DAB07A}
+.signal.red{background:rgba(157,78,78,.18);color:#E3A5A5}
+.mortgage-note{margin-top:16px;color:#9FB0B8;font-size:.82rem}
+
+.scenario-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.scenario{padding:22px;border:1px solid var(--line);background:#fff}
+.scenario h3{margin:0 0 8px;color:var(--ink)}
+.scenario p{margin:0;color:var(--muted);font-size:.86rem}
+.scenario .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:18px}
+.scenario .num{padding:10px;background:#F3F0EA;text-align:center}
+.scenario .num b{display:block;color:var(--ink)}
+.scenario .num span{display:block;color:#74808A;font-size:.71rem}
+
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.step{padding:22px;background:#fff;border:1px solid var(--line)}
+.step .n{font-size:.72rem;color:var(--teal);font-weight:800;letter-spacing:.1em}
+.step h3{margin:8px 0;color:var(--ink);font-size:1rem}
+.step p{margin:0;color:var(--muted);font-size:.87rem}
+.qa-examples{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:20px}
+.qa-item{padding:17px;background:#F1ECE4;border-left:3px solid var(--gold);font-size:.87rem;color:#5B554E}
+
+.role-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.role-card{padding:28px;border:1px solid var(--line);background:#fff}
+.role-card h3{margin:0 0 14px;color:var(--ink)}
+.role-card ul{margin:0;padding-left:20px;color:#46545F}
+.role-card li+li{margin-top:7px}
+.role-thesis{margin-top:18px;padding:18px 20px;background:var(--dark);color:#D7DEE2;border-left:3px solid var(--teal2)}
+
+.artifacts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.artifact{display:flex;flex-direction:column;min-height:205px;padding:22px;background:#fff;border:1px solid var(--line)}
+.artifact .type{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--teal);font-weight:800}
+.artifact h3{margin:10px 0 8px;color:var(--ink);font-size:1rem}
+.artifact p{margin:0;color:var(--muted);font-size:.84rem}
+.artifact .status{margin-top:auto;padding-top:16px;color:var(--gold);font-size:.75rem;font-weight:700}
+
+.meta-footer{padding:22px 0;background:#EFEAE2;border-top:1px solid var(--line)}
+.meta-footer .container{display:flex;gap:24px;flex-wrap:wrap;color:#5F6971;font-size:.82rem}
+footer{padding:24px 0 34px;border-top:1px solid var(--line);font-size:.8rem;color:#66717A}
+
+@media(max-width:980px){
+  .summary-grid,.chart-grid,.role-grid{grid-template-columns:1fr}
+  .scenario-grid{grid-template-columns:1fr}
+  .artifacts{grid-template-columns:1fr 1fr}
+  .lot-spec{grid-template-columns:1fr 1fr}
+  .timeline{grid-template-columns:1fr 1fr}
+  .flow{grid-template-columns:1fr}
+  .flow span:not(:last-child):after{content:"↓";right:50%;top:auto;bottom:-14px;transform:translate(50%,50%)}
+}
+@media(max-width:680px){
+  body{font-size:16px}
+  .container{width:min(calc(100% - 30px),var(--max))}
+  .nav{align-items:flex-start;flex-direction:column;padding:12px 0;gap:8px}
+  .section-head{grid-template-columns:48px 1fr}
+  .marker{width:48px}
+  .section-head p{grid-column:1/-1}
+  .lot-spec,.artifacts,.timeline,.qa-examples{grid-template-columns:1fr}
+  .mortgage-table{font-size:.78rem}
+  .mortgage-table th,.mortgage-table td{padding:9px 6px}
+  .pair-row{grid-template-columns:46px 1fr 54px}
+  h1{font-size:clamp(2.6rem,14vw,4.1rem)}
+}
+
+.artifact-action{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:9px 12px;border:1px solid #D8D2C9;border-radius:5px;text-decoration:none;color:#087F78;font-size:.8rem;font-weight:750;background:#FBFAF7}.artifact-action:hover{border-color:#087F78;background:#F0F7F6}.artifact .status{display:none}
+</style>
+</head>
+<body>
+<header class="topbar">
+<nav aria-label="Навигация" class="nav container">
+<a class="brand" href="#top">Практический кейс CFO</a>
+<ul class="navlinks">
+<li><a href="#summary">Резюме</a></li>
+<li><a href="#method">Методология</a></li>
+<li><a href="#model">Модель</a></li>
+<li><a href="#qa">Проверка</a></li>
+<li><a href="#role">Роль CFO и ИИ</a></li>
+</ul>
+</nav>
+</header>
+<main>
+<section class="hero" id="top">
+<div class="container hero-grid">
+<div>
+<p class="eyebrow">Глубинное исследование · стратегическая аналитика</p>
+<h1>Рынок жилой недвижимости РФ<br/>2026–2035</h1>
+<p class="subtitle">Платежеспособный спрос, новое предложение, непроданные остатки и сценарная модель для принятия решений девелопером.</p>
+<div class="hero-flow">Спрос → Предложение → Остаток → Решение</div>
+</div>
+</div>
+</section>
+<section id="summary">
+<div class="container">
+<header class="section-head">
+<span class="marker">01</span>
+<h2>Резюме для руководителя</h2>
+<p>Исследование отвечает не на вопрос «сколько жилья нужно населению», а на вопрос «какой объём нового жилья рынок реально способен купить при заданных доходах, ценах и условиях кредитования».</p>
+</header>
+<div class="summary-grid">
+<div class="panel key-callout">
+<h3>Главный вывод</h3>
+<p>Физическая потребность населения в улучшении жилищных условий значительно выше фактического платежеспособного спроса. Ограничителем рынка является способность домохозяйств профинансировать покупку, а не само наличие потребности в жилье.</p>
+<span class="big-number">24,0 → 30,2 млн м² в год<small>Прогноз продаж новостроек в базовом сценарии: 2026 → 2030</small></span>
+<p class="normalization-note">После нормализации рынка устойчивый уровень продаж оценивается примерно в 27–32 млн м² в год.</p></div>
+<div class="panel">
+<h3>Управленческий вопрос</h3>
+<p>Какой объём нового жилья российский рынок способен экономически поглощать при разных траекториях ипотечных ставок, доходов населения, цен и новых запусков — и как это влияет на риск накопления непроданных остатков?</p>
+<div class="note"><strong>Важно:</strong> федеральный диапазон — ориентир для стратегии, а не норматив для конкретного региона или проекта. Региональная и продуктовая проверка обязательна.</div>
+</div>
+</div>
+</div>
+</section>
+<section id="method">
+<div class="container">
+<header class="section-head">
+<span class="marker">02</span>
+<h2>Логика исследования</h2>
+<p>Путь от исходных данных и проверки гипотезы — к платежеспособному спросу, новому предложению, накопленному запасу и управленческому решению.</p>
+</header>
+<div class="flow">
+<span>Демография и домохозяйства</span>
+<span>Доходы и доступность покупки</span>
+<span>Платежеспособный спрос</span>
+<span>Новое предложение</span>
+<span>Непроданный остаток</span>
+<span>Сценарии и решение</span>
+</div>
+<div class="method-box">
+<strong>Почему расчёт ведётся через домохозяйства.</strong>
+      Спрос считается не от количества жителей, а от домохозяйств — семей или совместно проживающих людей, которые принимают единое решение о покупке жилья и располагают общим бюджетом. Один человек не равен одной потенциальной покупке квартиры. Поэтому модель учитывает размер домохозяйства, доход, условия ипотеки, первоначальный взнос и способ финансирования сделки.
+    </div>
+</div>
+</section>
+<section class="dark-section" id="model">
+<div class="container">
+<header class="section-head">
+<span class="marker">03</span>
+<h2>Сценарная модель 2026–2035</h2>
+<p>Главная логика: сначала сопоставить платежеспособный спрос и новое предложение, затем увидеть, как их разрыв влияет на накопленный непроданный остаток.</p>
+</header>
+<div class="chart-grid">
+<div class="chart-card">
+<h3>Спрос и новое предложение · Базовый сценарий</h3>
+<p>млн м² в год</p>
+<div class="legend">
+<span><i class="demand"></i>Платежеспособный спрос</span>
+<span><i class="supply"></i>Новое предложение</span>
+</div>
+<div class="pair-row"><span class="year">2026</span><div class="pair-bars"><div class="track"><div class="bar-demand" style="width:66.7%"></div></div><div class="track"><div class="bar-supply" style="width:100%"></div></div></div><div class="vals">24,0<br/>36,0</div></div>
+<div class="pair-row"><span class="year">2027</span><div class="pair-bars"><div class="track"><div class="bar-demand" style="width:73.6%"></div></div><div class="track"><div class="bar-supply" style="width:86.1%"></div></div></div><div class="vals">26,5<br/>31,0</div></div>
+<div class="pair-row"><span class="year">2028</span><div class="pair-bars"><div class="track"><div class="bar-demand" style="width:79.2%"></div></div><div class="track"><div class="bar-supply" style="width:80.6%"></div></div></div><div class="vals">28,5<br/>29,0</div></div>
+<div class="pair-row"><span class="year">2029</span><div class="pair-bars"><div class="track"><div class="bar-demand" style="width:81.9%"></div></div><div class="track"><div class="bar-supply" style="width:81.9%"></div></div></div><div class="vals">29,5<br/>29,5</div></div>
+<div class="pair-row"><span class="year">2030</span><div class="pair-bars"><div class="track"><div class="bar-demand" style="width:83.9%"></div></div><div class="track"><div class="bar-supply" style="width:83.3%"></div></div></div><div class="vals">30,2<br/>30,0</div></div>
+<div class="pair-row"><span class="year">2035</span><div class="pair-bars"><div class="track"><div class="bar-demand" style="width:81.4%"></div></div><div class="track"><div class="bar-supply" style="width:79.2%"></div></div></div><div class="vals">29,3<br/>28,5</div></div>
+<div class="insight-list">
+<div class="insight"><strong>2026:</strong> предложение превышает спрос примерно на 12 млн м² — запас продолжает накапливаться.</div>
+<div class="insight"><strong>2028–2029:</strong> рынок в базовом сценарии постепенно приближается к балансу.</div>
+<div class="insight"><strong>2030–2035:</strong> объём новых запусков становится сопоставимым с объёмом поглощения рынка.</div>
+</div>
+</div>
+<div class="chart-card">
+<h3>Непроданный остаток · Базовый сценарий</h3>
+<p>млн м²</p>
+<div class="stock-row"><span class="stock-label">2025 факт</span><div class="stock-track"><div class="stock-bar" style="width:82.5%"></div></div><span class="stock-value">80,0</span></div>
+<div class="stock-row"><span class="stock-label">2026</span><div class="stock-track"><div class="stock-bar" style="width:94.8%"></div></div><span class="stock-value">92,0</span></div>
+<div class="stock-row"><span class="stock-label">2027</span><div class="stock-track"><div class="stock-bar" style="width:99.5%"></div></div><span class="stock-value">96,5</span></div>
+<div class="stock-row"><span class="stock-label">2028</span><div class="stock-track"><div class="stock-bar" style="width:100%"></div></div><span class="stock-value">97,0</span></div>
+<div class="stock-row"><span class="stock-label">2029</span><div class="stock-track"><div class="stock-bar" style="width:100%"></div></div><span class="stock-value">97,0</span></div>
+<div class="stock-row"><span class="stock-label">2030</span><div class="stock-track"><div class="stock-bar" style="width:99.8%"></div></div><span class="stock-value">96,8</span></div>
+<div class="stock-row"><span class="stock-label">2035</span><div class="stock-track"><div class="stock-bar" style="width:97.4%"></div></div><span class="stock-value">94,5</span></div>
+<div class="kpi-box">
+<b>39–46 месяцев</b>
+<span>срок реализации текущего непроданного запаса при сохранении наблюдаемого темпа продаж.</span>
+</div>
+<div class="insight-list">
+<div class="insight">Баланс текущего спроса и новых запусков останавливает дальнейшее накопление проблемы, но не устраняет ранее сформированный навес предложения.</div>
+<div class="insight">Диапазон 39–46 месяцев используется вместо одной точки: числитель и знаменатель относятся к разным периодам, а помесячного ряда для строгого скользящего расчёта в модели нет.</div>
+</div>
+</div>
+</div>
+<div class="mortgage-wrap">
+<div class="chart-card">
+<h3>Ипотечная доступность типового лота</h3>
+<p>Что происходит с ежемесячным платежом и массовым спросом при изменении рыночной ставки</p>
+<div class="lot-spec">
+<div class="spec"><b>54 м²</b><span>площадь типового лота</span></div>
+<div class="spec"><b>203 125 руб./м²</b><span>цена за квадратный метр</span></div>
+<div class="spec"><b>10,97 млн руб.</b><span>стоимость лота</span></div>
+<div class="spec"><b>7,68 млн руб.</b><span>сумма кредита после взноса 30%</span></div>
+</div>
+<div class="legend">
+<span><i class="green"></i>широкая доступность</span>
+<span><i class="yellow"></i>существенное ограничение</span>
+<span><i class="red"></i>массовый спрос резко ограничен</span>
+</div>
+<table class="mortgage-table">
+<thead>
+<tr>
+<th>Ставка</th>
+<th>Платёж</th>
+<th>Уровень доступности</th>
+<th>Что это означает для спроса</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>6%</td><td>49,5 тыс. руб./мес.</td><td><span class="signal green">Высокая</span></td><td>Доступность приближается к массовому рынку.</td></tr>
+<tr><td>10%</td><td>69,8 тыс. руб./мес.</td><td><span class="signal green">Расширяется</span></td><td>Воронка покупателей заметно расширяется.</td></tr>
+<tr><td>18%</td><td>116,5 тыс. руб./мес.</td><td><span class="signal yellow">Ограничена</span></td><td>Платёж становится тяжёлым для широкого круга домохозяйств.</td></tr>
+<tr><td>24,8%</td><td>159,0 тыс. руб./мес.</td><td><span class="signal red">Практически недоступна</span></td><td>Массовая рыночная ипотека резко ограничивает спрос без господдержки и альтернативных схем финансирования.</td></tr>
+</tbody>
+</table>
+<div class="mortgage-note">Первоначальный взнос — 30% / около 3,29 млн руб.; срок кредита — 25 лет. Точная доля семей, способных приобрести такой лот, после независимой проверки признана недостаточно подтверждённой и исключена из публичной визуализации.</div>
+</div>
+</div>
+</div>
+</section>
+<section id="scenarios">
+<div class="container">
+<header class="section-head">
+<span class="marker">04</span>
+<h2>Сценарии развития рынка</h2>
+<p>Сценарии различаются не только итоговыми цифрами, но и условиями, при которых они могут реализоваться.</p>
+</header>
+<div class="scenario-measure">Прогноз продаж новостроек, млн м² в год</div><div class="scenario-grid">
+<div class="scenario">
+<h3>Оптимистичный сценарий</h3>
+<p>Ипотечные ставки снижаются быстрее, реальные доходы растут, адресные программы поддержки сохраняются.</p>
+<div class="nums">
+<div class="num"><b>26,0</b><span>2026</span></div>
+<div class="num"><b>36,0</b><span>2030</span></div>
+<div class="num"><b>34,0</b><span>2035</span></div>
+</div>
+</div>
+<div class="scenario">
+<h3>Базовый сценарий</h3>
+<p>Постепенное снижение ставок и восстановление доступности без резкого ускорения доходов.</p>
+<div class="nums">
+<div class="num"><b>24,0</b><span>2026</span></div>
+<div class="num"><b>30,2</b><span>2030</span></div>
+<div class="num"><b>29,3</b><span>2035</span></div>
+</div>
+</div>
+<div class="scenario">
+<h3>Пессимистичный сценарий</h3>
+<p>Высокие ставки сохраняются дольше, рост реальных доходов слабый, государственная поддержка сокращается.</p>
+<div class="nums">
+<div class="num"><b>21,0</b><span>2026</span></div>
+<div class="num"><b>23,0</b><span>2030</span></div>
+<div class="num"><b>21,0</b><span>2035</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="qa">
+<div class="container">
+<header class="section-head">
+<span class="marker">05</span>
+<h2>Как проверялся результат</h2>
+<p>Исследование не принималось как готовый ответ ИИ. Существенные цифры, методология и причинно-следственные выводы проходили отдельную независимую проверку.</p>
+</header>
+<div class="timeline">
+<div class="step"><div class="n">01</div><h3>Исследование</h3><p>Собраны данные, проверена исходная гипотеза, построены расчёты и сценарии.</p></div>
+<div class="step"><div class="n">02</div><h3>Независимая проверка</h3><p>Отдельно проверены методология, источники, расчёты и интерпретация.</p></div>
+<div class="step"><div class="n">03</div><h3>Корректировка</h3><p>Точечные оценки заменены диапазонами, неподтверждённые показатели исключены.</p></div>
+<div class="step"><div class="n">04</div><h3>Повторная проверка</h3><p>Проверена устойчивость ключевого вывода после внесённых изменений.</p></div>
+</div>
+</div>
+</section>
+<section id="role">
+<div class="container">
+<header class="section-head">
+<span class="marker">06</span>
+<h2>Роль финансового директора и роль ИИ</h2>
+<p>Кейс демонстрирует управляемую совместную работу: экономическая постановка, критика и ответственность за вывод остаются на стороне руководителя.</p>
+</header>
+<div class="role-grid">
+<div class="role-card">
+<h3>Финансовый директор</h3>
+<ul>
+<li>Формулирует управленческую задачу и границы исследования.</li>
+<li>Определяет экономическую логику модели и существенные показатели.</li>
+<li>Проверяет причинно-следственные связи и допущения.</li>
+<li>Принимает или отклоняет выводы модели.</li>
+<li>Переводит расчёты в решение для бизнеса.</li>
+</ul>
+</div>
+<div class="role-card">
+<h3>Искусственный интеллект</h3>
+<ul>
+<li>Ускоряет сбор и структурирование информации.</li>
+<li>Помогает строить сценарные расчёты и проверять гипотезы.</li>
+<li>Поддерживает независимую проверку результатов.</li>
+<li>Помогает выявлять противоречия и слабые места модели.</li>
+<li>Ускоряет итерационную доработку исследования и расчётов.</li>
+</ul>
+</div>
+</div>
+<div class="role-thesis">ИИ используется как аналитический инструмент, но управленческое суждение и ответственность за решение остаются на стороне человека.</div>
+</div>
+</section>
+<section id="artifacts">
+<div class="container">
+<header class="section-head">
+<span class="marker">07</span>
+<h2>Артефакты исследования</h2>
+<p>Основные материалы проекта и контур независимой проверки.</p>
+</header>
+<div class="artifacts">
+<div class="artifact"><span class="type">Расчётная модель</span><h3>Модель спроса на новостройки РФ 2026–2035</h3><p>Сценарии, спрос, предложение, остатки, ипотечная доступность, чувствительность, историческая проверка и индикаторы раннего предупреждения.</p><span class="status">Рабочий файл</span><a class="artifact-action" href="model_residential_demand_2026_2035_public.xlsx" rel="noopener noreferrer" target="_blank">Скачать модель ↓</a></div>
+<div class="artifact"><span class="type">Исследование</span><h3>Платежеспособный спрос и баланс первичного рынка</h3><p>Глубокое исследование для совета директоров: факты, методология, сценарии, региональные выводы и границы применимости.</p><span class="status">Рабочий файл</span><a class="artifact-action" href="residential_market_research_2026_2035.pdf" rel="noopener noreferrer" target="_blank">Открыть исследование →</a></div>
+<div class="artifact"><span class="type">Руководство пользователя</span><h3>Руководство по модели</h3><p>Архитектура книги, правила безопасной работы, интерпретация расчётов и типовые сценарии использования.</p><span class="status">Рабочий файл</span><a class="artifact-action" href="model_user_guide_2026_2035.pdf" rel="noopener noreferrer" target="_blank">Открыть руководство →</a></div>
+</div>
+</div>
+</section>
+</main>
+<div class="meta-footer">
+<div class="container">
+<span>Информационный срез исследования: 11.09.2026</span>
+<span>Актуализация после второго контура независимой проверки: 12.09.2026</span>
+<span>Горизонт модели: 2026–2035</span>
+</div>
+</div>
+<footer>
+<div class="container">Практический кейс CFO · Глубинное исследование рынка жилой недвижимости РФ</div>
+</footer>
+</body>
+</html>
